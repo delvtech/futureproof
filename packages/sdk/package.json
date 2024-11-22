@@ -1,0 +1,55 @@
+{
+  "name": "sdk",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.cts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.ts",
+        "require": "./dist/index.d.cts"
+      },
+      "default": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest --reporter=verbose",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@liquity/lib-base": "^3.0.0"
+  },
+  "dependencies": {
+    "@delvtech/drift": "^0.0.1-beta.17"
+  },
+  "devDependencies": {
+    "@liquity/lib-base": "^3.0.0",
+    "@repo/typescript-config": "*",
+    "sinon": "^17.0.1",
+    "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vite-tsconfig-paths": "^5.1.3",
+    "vitest": "^2.1.5"
+  },
+  "author": {
+    "name": "DELV",
+    "email": "contact@delv.tech",
+    "url": "https://github.com/delvtech"
+  },
+  "repository": "https://github.com/delvtech/futureproof",
+  "bugs": "https://github.com/delvtech/futureproof/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": ["dist"]
+}

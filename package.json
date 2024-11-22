@@ -1,0 +1,34 @@
+{
+  "name": "futureproof",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:packages": "turbo build --filter=./packages/*",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "format": "biome format --write",
+    "lint": "biome lint --diagnostic-level error .",
+    "lint:fix": "yarn lint --fix",
+    "lint:fix:unsafe": "yarn lint:fix --unsafe",
+    "release": "turbo build && changeset publish",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "reset-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && yarn cache clean && yarn"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.1",
+    "@changesets/cli": "^2.27.1",
+    "@repo/typescript-config": "*",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "resolutions": {
+    "typescript": "^5.6.3",
+    "viem": "^2.21.48"
+  },
+  "packageManager": "yarn@1.22.21",
+  "workspaces": ["apps/*", "packages/*"]
+}
